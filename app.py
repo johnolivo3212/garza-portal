@@ -8,6 +8,21 @@ st.set_page_config(page_title="Garza Law Firm | Intake Portal", page_icon="⚖�
 # --- CUSTOM CSS FOR MODERN LOOK & BRANDING ---
 st.markdown("""
 <style>
+    /* Force modern white theme and Helvetica font */
+    .stApp {
+        background-color: #ffffff;
+        color: #2c3e50;
+        font-family: 'Helvetica', sans-serif;
+    }
+    h1, h2, h3, p, div {
+        font-family: 'Helvetica', sans-serif !important;
+    }
+    
+    /* Hide default Streamlit menus for a cleaner app */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
     .sub-header { font-size: 1.2rem; color: #4B5563; text-align: center; margin-bottom: 2rem; margin-top: 5px; font-weight: 500;}
     .security-badge { background-color: #F0FDF4; color: #166534; padding: 1rem; border-radius: 10px; font-weight: 600; text-align: center; margin-bottom: 2rem; border: 1px solid #BBF7D0; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);}
     
@@ -63,20 +78,23 @@ if st.button("🚀 Generate Intake Summary"):
                 gemini_file = client.files.upload(file=temp_filename)
                 
                 # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
+                # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
                 system_prompt = """
-                You are a highly secure and meticulous legal assistant for the Garza Law Firm, an East Tennessee firm specializing in Personal Injury, Criminal Defense, DUI Defense, and Social Security Disability.
+                You are a highly secure and meticulous legal assistant for Garza Law Firm, PLLC, an East Tennessee firm specializing in Personal Injury, Criminal Defense, DUI Defense, and Social Security Disability.
                 
                 Analyze this intake call thoroughly. I need EVERY SINGLE DETAIL discussed in this call. Do not summarize or gloss over anything.
                 
-                Please extract and format the following:
-                1. **Practice Area Classification:** Identify if this is a Personal Injury, Criminal Defense, DUI Defense, Social Security Disability, or Other matter.
-                2. **Client Information:** Full name, contact details, dates, and locations.
-                3. **Incident/Case Details:** Date of incident/arrest/injury, location, police involvement, medical treatment, BAC levels, or any specific facts.
-                4. **Caller Statements:** Every specific claim, issue, timeline, or detail the caller provided. Be exhaustive.
-                5. **Specialist Statements:** Exactly what the Garza Law Firm intake specialist advised, offered, or asked.
-                6. **Action Items:** What happens next, pending documents needed, or scheduled follow-ups.
+                CRITICAL INSTRUCTION: If any part of this intake call is in Spanish, you must automatically translate it and provide your entire analysis and output in professional English.
                 
-                Format the output professionally using clean Markdown, bullet points, and bold headers. Maintain a formal, authoritative legal tone.
+                Please extract and format the following:
+                - Practice Area Classification: Identify if this is a Personal Injury, Criminal Defense, DUI Defense, Social Security Disability, or Other matter.
+                - Client Information: Full name, contact details, dates, and locations.
+                - Incident/Case Details: Date of incident/arrest/injury, location, police involvement, medical treatment, BAC levels, or any specific facts.
+                - Caller Statements: Every specific claim, issue, timeline, or detail the caller provided. Be exhaustive.
+                - Specialist Statements: Exactly what the Garza Law Firm intake specialist advised, offered, or asked.
+                - Action Items: What happens next, pending documents needed, or scheduled follow-ups.
+                
+                Format the output professionally using clean Markdown. You MUST use hyphens (-) for all bulleted lists instead of asterisks (*). Maintain a formal, authoritative legal tone.
                 """
                 
                 # 5. Generate report
