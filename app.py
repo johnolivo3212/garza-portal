@@ -12,48 +12,35 @@ st.markdown("""
     .stApp {
         background-color: #ffffff !important;
     }
-    
-    /* Ensure all text is legible */
-    h1, h2, h3, p, div, span, label {
-        color: #2c3e50 !important;
-        font-family: 'Helvetica', sans-serif !important;
-    }
 
-    /* --- UPLOAD BOX FIX --- */
-    /* Targets the box, text, and icons inside */
+    /* Fix the File Uploader dropzone */
     [data-testid="stFileUploadDropzone"] {
-        background-color: #F8FAFC !important;
+        background-color: #f8f9fa !important;
         border: 2px dashed #002B5C !important;
-        border-radius: 10px !important;
+        color: #2c3e50 !important;
     }
+    
+    /* Ensure the text inside the dropzone is dark */
     [data-testid="stFileUploadDropzone"] div, 
-    [data-testid="stFileUploadDropzone"] span,
-    [data-testid="stFileUploadDropzone"] p {
+    [data-testid="stFileUploadDropzone"] span {
         color: #2c3e50 !important;
     }
 
-    /* --- BUTTON FIX --- */
-    /* Target the button wrapper and the button itself */
+    /* Fix the Generate Button */
     div.stButton > button {
-        width: 100%;
         background-color: #002B5C !important;
         color: #ffffff !important;
         border: none !important;
+        padding: 0.5rem 1rem !important;
         border-radius: 8px !important;
-        font-weight: bold !important;
     }
-    div.stButton > button:hover {
-        background-color: #001A38 !important;
-    }
-
-    /* Hide UI elements */
-    #MainMenu, footer, header {visibility: hidden;}
     
-    .sub-header { font-size: 1.2rem !important; color: #4B5563 !important; text-align: center; margin-bottom: 2rem; margin-top: 5px; font-weight: 500;}
-    .security-badge { background-color: #F0FDF4 !important; color: #166534 !important; padding: 1rem; border-radius: 10px; font-weight: 600; text-align: center; margin-bottom: 2rem; border: 1px solid #BBF7D0; font-size: 0.95rem;}
+    div.stButton > button:hover {
+        background-color: #001a38 !important;
+        color: #ffffff !important;
+    }
 </style>
 """, unsafe_allow_html=True)
-
 # --- HEADER & LOGO ---
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
