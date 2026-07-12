@@ -57,7 +57,7 @@ if st.button("🚀 Generate Intake Summary"):
                 # 2. Secure temporary file saving
                 temp_filename = f"secure_temp_{uploaded_file.name}"
                 with open(temp_filename, "wb") as f:
-                    f.write(uploaded_file.getbuffer())
+                    client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
                 
                 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
                 
