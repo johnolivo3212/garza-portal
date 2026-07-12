@@ -34,7 +34,7 @@ st.markdown('<div class="security-badge">🔒 CONFIDENTIAL & SECURE: Files are p
 # --- SIDEBAR (SETTINGS) ---
 with st.sidebar:
     st.header("⚙️ System Settings")
-    api_key = st.text_input("Enter System API Key", type="password", help="Required for secure AI processing.")
+    
     st.divider()
     st.caption("Authorized for Garza Law Firm personnel only.")
 
@@ -44,9 +44,9 @@ uploaded_file = st.file_uploader("Drag and drop an audio file or transcript here
 
 # --- PROCESSING LOGIC ---
 if st.button("🚀 Generate Intake Summary"):
-    if not api_key:
-        st.error("⚠️ Please enter the System API Key in the sidebar to proceed.")
-    elif not uploaded_file:
+    
+        
+    if not uploaded_file:
         st.warning("⚠️ Please upload a client file first.")
     else:
         with st.spinner("Securely analyzing every detail of the intake call..."):
@@ -60,7 +60,7 @@ if st.button("🚀 Generate Intake Summary"):
                     f.write(uploaded_file.getbuffer())
                 
                 # 3. Upload to secure AI processing environment
-                client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
+                
                 
                 # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
                 system_prompt = """
