@@ -59,7 +59,7 @@ if st.button("🚀 Generate Intake Summary"):
                 with open(temp_filename, "wb") as f:
                     f.write(uploaded_file.getbuffer())
                 
-                # 3. Upload to secure AI processing environment
+                client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
                 
                 
                 # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
