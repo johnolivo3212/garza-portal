@@ -8,31 +8,49 @@ st.set_page_config(page_title="Garza Law Firm | Intake Portal", page_icon="âš–ï¸
 # --- CUSTOM CSS FOR MODERN LOOK & BRANDING ---
 st.markdown("""
 <style>
-    /* Force modern white theme and Helvetica font */
-    .stApp, .main {
+    /* Force main app background to white */
+    .stApp {
         background-color: #ffffff !important;
+    }
+    
+    /* Ensure all text is legible */
+    h1, h2, h3, p, div, span, label {
+        color: #2c3e50 !important;
         font-family: 'Helvetica', sans-serif !important;
     }
-    h1, h2, h3, p, div, span, label {
-        font-family: 'Helvetica', sans-serif !important;
+
+    /* --- UPLOAD BOX FIX --- */
+    /* Targets the box, text, and icons inside */
+    [data-testid="stFileUploadDropzone"] {
+        background-color: #F8FAFC !important;
+        border: 2px dashed #002B5C !important;
+        border-radius: 10px !important;
+    }
+    [data-testid="stFileUploadDropzone"] div, 
+    [data-testid="stFileUploadDropzone"] span,
+    [data-testid="stFileUploadDropzone"] p {
         color: #2c3e50 !important;
     }
-    
-    /* Hide default Streamlit menus for a cleaner app */
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
+
+    /* --- BUTTON FIX --- */
+    /* Target the button wrapper and the button itself */
+    div.stButton > button {
+        width: 100%;
+        background-color: #002B5C !important;
+        color: #ffffff !important;
+        border: none !important;
+        border-radius: 8px !important;
+        font-weight: bold !important;
+    }
+    div.stButton > button:hover {
+        background-color: #001A38 !important;
+    }
+
+    /* Hide UI elements */
+    #MainMenu, footer, header {visibility: hidden;}
     
     .sub-header { font-size: 1.2rem !important; color: #4B5563 !important; text-align: center; margin-bottom: 2rem; margin-top: 5px; font-weight: 500;}
-    .security-badge { background-color: #F0FDF4 !important; color: #166534 !important; padding: 1rem; border-radius: 10px; font-weight: 600; text-align: center; margin-bottom: 2rem; border: 1px solid #BBF7D0; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);}
-    
-    /* Customizing the main button */
-    .stButton>button { width: 100%; font-size: 1.1rem; font-weight: bold; border-radius: 8px; background-color: #002B5C !important; color: white !important; border: none; padding: 0.6rem 1rem; transition: 0.3s;}
-    .stButton>button:hover { background-color: #001A38 !important; color: white !important; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
-    
-    /* Styling the uploader area (THE UPLOAD BOX) */
-    [data-testid="stFileUploadDropzone"] { border: 2px dashed #002B5C !important; border-radius: 10px; background-color: #F8FAFC !important; padding: 2rem;}
-    [data-testid="stFileUploadDropzone"] * { color: #2c3e50 !important; }
+    .security-badge { background-color: #F0FDF4 !important; color: #166534 !important; padding: 1rem; border-radius: 10px; font-weight: 600; text-align: center; margin-bottom: 2rem; border: 1px solid #BBF7D0; font-size: 0.95rem;}
 </style>
 """, unsafe_allow_html=True)
 
