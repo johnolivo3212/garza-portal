@@ -60,7 +60,7 @@ if st.button("🚀 Generate Intake Summary"):
                     f.write(uploaded_file.getbuffer())
                 
                 # 3. Upload to secure AI processing environment
-                gemini_file = client.files.upload(file=temp_filename)
+                client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
                 
                 # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
                 system_prompt = """
@@ -89,7 +89,7 @@ if st.button("🚀 Generate Intake Summary"):
                 st.divider()
                 
                 # 6. Display the final report
-                st.markdown(response.text)
+                st.code(response.text, language="markdown", wrap_lines=True)
                 
                 # 7. CRITICAL SECURITY: CLEANUP
                 os.remove(temp_filename) 
