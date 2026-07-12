@@ -9,13 +9,13 @@ st.set_page_config(page_title="Garza Law Firm | Intake Portal", page_icon="âš–ï¸
 st.markdown("""
 <style>
     /* Force modern white theme and Helvetica font */
-    .stApp {
-        background-color: #ffffff;
-        color: #2c3e50;
-        font-family: 'Helvetica', sans-serif;
-    }
-    h1, h2, h3, p, div {
+    .stApp, .main {
+        background-color: #ffffff !important;
         font-family: 'Helvetica', sans-serif !important;
+    }
+    h1, h2, h3, p, div, span, label {
+        font-family: 'Helvetica', sans-serif !important;
+        color: #2c3e50 !important;
     }
     
     /* Hide default Streamlit menus for a cleaner app */
@@ -23,15 +23,16 @@ st.markdown("""
     footer {visibility: hidden;}
     header {visibility: hidden;}
     
-    .sub-header { font-size: 1.2rem; color: #4B5563; text-align: center; margin-bottom: 2rem; margin-top: 5px; font-weight: 500;}
-    .security-badge { background-color: #F0FDF4; color: #166534; padding: 1rem; border-radius: 10px; font-weight: 600; text-align: center; margin-bottom: 2rem; border: 1px solid #BBF7D0; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);}
+    .sub-header { font-size: 1.2rem !important; color: #4B5563 !important; text-align: center; margin-bottom: 2rem; margin-top: 5px; font-weight: 500;}
+    .security-badge { background-color: #F0FDF4 !important; color: #166534 !important; padding: 1rem; border-radius: 10px; font-weight: 600; text-align: center; margin-bottom: 2rem; border: 1px solid #BBF7D0; font-size: 0.95rem; box-shadow: 0 2px 4px rgba(0,0,0,0.05);}
     
-    /* Customizing the main button to match Garza Law Firm Navy Blue */
-    .stButton>button { width: 100%; font-size: 1.1rem; font-weight: bold; border-radius: 8px; background-color: #002B5C; color: white; border: none; padding: 0.6rem 1rem; transition: 0.3s;}
-    .stButton>button:hover { background-color: #001A38; color: white; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
+    /* Customizing the main button */
+    .stButton>button { width: 100%; font-size: 1.1rem; font-weight: bold; border-radius: 8px; background-color: #002B5C !important; color: white !important; border: none; padding: 0.6rem 1rem; transition: 0.3s;}
+    .stButton>button:hover { background-color: #001A38 !important; color: white !important; box-shadow: 0 4px 6px rgba(0,0,0,0.1);}
     
-    /* Styling the uploader area */
-    [data-testid="stFileUploadDropzone"] { border: 2px dashed #002B5C; border-radius: 10px; background-color: #F8FAFC; padding: 2rem;}
+    /* Styling the uploader area (THE UPLOAD BOX) */
+    [data-testid="stFileUploadDropzone"] { border: 2px dashed #002B5C !important; border-radius: 10px; background-color: #F8FAFC !important; padding: 2rem;}
+    [data-testid="stFileUploadDropzone"] * { color: #2c3e50 !important; }
 </style>
 """, unsafe_allow_html=True)
 
