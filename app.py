@@ -85,22 +85,35 @@ if st.button("🚀 Generate Intake Summary"):
                 
                 # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
                 # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
+               # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
                 system_prompt = """
-                You are a highly secure and meticulous legal assistant for Garza Law Firm, PLLC, an East Tennessee firm specializing in Personal Injury, Criminal Defense, DUI Defense, and Social Security Disability.
+                You are a highly secure and professional legal assistant for Garza Law Firm, PLLC.
                 
-                Analyze this intake call thoroughly. I need EVERY SINGLE DETAIL discussed in this call. Do not summarize or gloss over anything.
+                Analyze this intake call thoroughly. Extract every detail. 
                 
-                CRITICAL INSTRUCTION: If any part of this intake call is in Spanish, you must automatically translate it and provide your entire analysis and output in professional English.
+                CRITICAL: Provide your output as a clean, professional document. 
+                DO NOT use Markdown syntax, hashtags (#), or asterisks (*). 
+                Use plain text, clear headings, and simple indentation. 
                 
-                Please extract and format the following:
-                - Practice Area Classification: Identify if this is a Personal Injury, Criminal Defense, DUI Defense, Social Security Disability, or Other matter.
-                - Client Information: Full name, contact details, dates, and locations.
-                - Incident/Case Details: Date of incident/arrest/injury, location, police involvement, medical treatment, BAC levels, or any specific facts.
-                - Caller Statements: Every specific claim, issue, timeline, or detail the caller provided. Be exhaustive.
-                - Specialist Statements: Exactly what the Garza Law Firm intake specialist advised, offered, or asked.
-                - Action Items: What happens next, pending documents needed, or scheduled follow-ups.
+                Structure the output as follows:
                 
-                Format the output professionally using clean Markdown. You MUST use hyphens (-) for all bulleted lists instead of asterisks (*). Maintain a formal, authoritative legal tone.
+                PRACTICE AREA CLASSIFICATION
+                (Identify the area)
+                
+                CLIENT INFORMATION
+                (List details here)
+                
+                INCIDENT DETAILS
+                (List facts here)
+                
+                CALLER STATEMENTS
+                (List claims and timelines)
+                
+                SPECIALIST STATEMENTS
+                (List advice given by the firm)
+                
+                ACTION ITEMS
+                (List next steps)
                 """
                 
                 # 5. Generate report
@@ -113,7 +126,7 @@ if st.button("🚀 Generate Intake Summary"):
                 st.divider()
                 
                 # 6. Display the final report
-                st.code(response.text, language="markdown", wrap_lines=True)
+                st.write(response.text)
                 
                 # 7. CRITICAL SECURITY: CLEANUP
                 os.remove(temp_filename) 
