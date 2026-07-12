@@ -40,7 +40,7 @@ with st.sidebar:
 
 # --- MAIN CONTENT ---
 st.write("### 📂 Upload Intake File")
-uploaded_file = st.file_uploader("Drag and drop an audio file or transcript here (.txt, .pdf, .mp3, .wav)", type=["txt", "pdf", "mp3", "wav", "m4a"], label_visibility="collapsed")
+uploaded_file = st.file_uploader("Drag and drop an audio file or transcript here (.txt, .csv, .pdf, .mp3, .wav)", type=["txt", "csv", "pdf", "mp3", "wav", "m4a"], label_visibility="collapsed")
 
 # --- PROCESSING LOGIC ---
 if st.button("🚀 Generate Intake Summary"):
