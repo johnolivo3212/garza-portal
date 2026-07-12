@@ -51,21 +51,20 @@ if st.button("🚀 Generate Intake Summary"):
     else:
         with st.spinner("Securely analyzing every detail of the intake call..."):
             try:
-                # 1. Initialize AI Client
-                client = genai.Client(api_key=api_key)
-                
-                # 2. Secure temporary file saving
-                temp_filename = f"secure_temp_{uploaded_file.name}"
-                with open(temp_filename, "wb") as f:
-                    client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-                
                 client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
-                
-                
-                # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
-                system_prompt = """
-                You are a highly secure and meticulous legal assistant for the Garza Law Firm, an East Tennessee firm specializing in Personal Injury, Criminal Defense, DUI Defense, and Social Security Disability.
-                
+                    # 1. Initialize AI Client
+            client = genai.Client(api_key=st.secrets["GEMINI_API_KEY"])
+
+            # 2. Secure temporary file saving
+            temp_filename = f"secure_temp_{uploaded_file.name}"
+            with open(temp_filename, "wb") as f:
+                f.write(uploaded_file.getbuffer())
+
+            # 3. Upload file for AI processing
+            gemini_file = client.files.upload(file=temp_filename)
+            
+            # 4. Define Prompt
+            system_prompt = """
                 Analyze this intake call thoroughly. I need EVERY SINGLE DETAIL discussed in this call. Do not summarize or gloss over anything.
                 
                 Please extract and format the following:
@@ -81,7 +80,7 @@ if st.button("🚀 Generate Intake Summary"):
                 
                 # 5. Generate report
                 response = client.models.generate_content(
-                    model='gemini-3.5-flash',
+                    model='gemini-1.5-flash',
                     contents=[system_prompt, gemini_file]
                 )
                 
