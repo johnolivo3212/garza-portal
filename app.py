@@ -57,7 +57,7 @@ with st.sidebar:
     st.header("⚙️ System Settings")
     
     st.divider()
-    st.caption("Authorized for Garza Law Firm personnel only.")
+    st.caption("Developed by [John Olivo]")
 
 # --- MAIN CONTENT ---
 st.write("### 📂 Upload Intake File")
