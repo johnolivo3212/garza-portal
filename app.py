@@ -24,7 +24,7 @@ st.markdown("""
 col1, col2, col3 = st.columns([1, 2, 1])
 with col2:
     try:
-        st.image("Garza law firm logo.png", use_container_width=True)
+        st.image("logo.png", use_container_width=True)
     except FileNotFoundError:
         st.error("⚠️ Please place 'Garza law firm logo.png' in the same folder as this script.")
 
