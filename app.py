@@ -86,34 +86,37 @@ if st.button("🚀 Generate Intake Summary"):
                 # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
                 # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
                # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
+                # 4. THE INVISIBLE AUTOMATED PROMPT - CUSTOMIZED FOR GARZA LAW
                 system_prompt = """
                 You are a highly secure and professional legal assistant for Garza Law Firm, PLLC.
                 
                 Analyze this intake call thoroughly. Extract every detail. 
                 
-                CRITICAL: Provide your output as a clean, professional document. 
-                DO NOT use Markdown syntax, hashtags (#), or asterisks (*). 
-                Use plain text, clear headings, and simple indentation. 
+                CRITICAL INSTRUCTION:
+                1. Use Bold, Larger Headings (e.g., **HEADING NAME**) for the main sections.
+                2. Use a simple hyphen (-) for every bulleted detail under the headings.
+                3. DO NOT use hashtags (#).
+                4. DO NOT use asterisks (*) for anything except BOLDING the headings.
                 
                 Structure the output as follows:
                 
-                PRACTICE AREA CLASSIFICATION
-                (Identify the area)
+                **PRACTICE AREA CLASSIFICATION**
+                - (Identify the area)
                 
-                CLIENT INFORMATION
-                (List details here)
+                **CLIENT INFORMATION**
+                - (List details here)
                 
-                INCIDENT DETAILS
-                (List facts here)
+                **INCIDENT DETAILS**
+                - (List facts here)
                 
-                CALLER STATEMENTS
-                (List claims and timelines)
+                **CALLER STATEMENTS**
+                - (List claims and timelines)
                 
-                SPECIALIST STATEMENTS
-                (List advice given by the firm)
+                **SPECIALIST STATEMENTS**
+                - (List advice given by the firm)
                 
-                ACTION ITEMS
-                (List next steps)
+                **ACTION ITEMS**
+                - (List next steps)
                 """
                 
                 # 5. Generate report
